@@ -26,6 +26,7 @@ export default function WeatherComponent() {
         fetchData();
     }, [city]);
     const getActivityRecommendation = (temperature) => {
+        
         if (temperature > 25) {
             return "Perfect weather for a picnic or walk in the park.";
         } else if (temperature > 15) {
@@ -40,17 +41,18 @@ export default function WeatherComponent() {
     return (
         <div>
             {weatherData && (
-                <div>
+                <div className="weather-inner">
                     <input
                         type="text"
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
-                        placeholder="Введите город"
+                        placeholder="Enter your city"
                     />
-                    <h2>{weatherData.name}</h2>
-                    <p>Температура: {weatherData.main.temp}°C</p>
-                    <p>{getActivityRecommendation(weatherData.main.temp)}</p>
-                    
+                    <div className="weather-inner__info">
+                    <h2>City: {weatherData.name}</h2>
+                    <p>Temperature: {Math.round(weatherData.main.temp)}°C</p>
+                    <p>Recommendations: {getActivityRecommendation(weatherData.main.temp)}</p>
+                    </div>
                 </div>
             )}
         </div>

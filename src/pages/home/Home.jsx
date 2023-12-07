@@ -9,8 +9,8 @@ export default function Home() {
             <main className="section">
                 <div className="container">
                     <div className="box">
-                        <HiComponent />
-                        <Link to="/weather">To see the Weather outsite</Link>
+                        <HiComponent className="HiComponent" />
+                        <Link className="link" to="/weather">To see the Weather outsite</Link>
                     </div>
                 </div>
             </main>

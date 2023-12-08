@@ -199,6 +199,20 @@ text-align: left;
 .weather-inner input::placeholder{
     font-size: 24px;
 }
+.weather-recomend{
+    margin-top: 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 1s; /* Задержка в 1 секунду */
+}
+.box-recommend{
+    text-align: center;
+}
+.box-recommend h2{
+    margin-bottom: 30px;
+}
 
 @keyframes scaleIn {
     from {
@@ -209,4 +223,14 @@ text-align: left;
         transform: scale(1);
     }
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 

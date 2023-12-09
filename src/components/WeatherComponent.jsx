@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { fetchWeatherByCity } from "../api";
 
-export default function WeatherComponent() {
+const WeatherComponent = () => {
+    const [city, setCity] = useState("");
     const [weatherData, setWeatherData] = useState(null);
-    const [city, setCity] = useState("Wroclaw");
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const apiKey = "3b8db2b21e56848758742645d5ea3787";
-                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-                const response = await axios.get(apiUrl);
-                setWeatherData(response.data);
-                console.log(response.data);
+                if (city) {
+                    const data = await fetchWeatherByCity(city);
+                    setWeatherData(data);
+                }
             } catch (error) {
-                console.error("Fetch error:", error);
+                console.error("Error fetching weather data:", error);
             }
         };
 
         fetchData();
     }, [city]);
+
     const getActivityRecommendation = (temperature) => {
         if (temperature > 25) {
             return "Perfect weather for a picnic or walk in the park.";
@@ -34,20 +34,18 @@ export default function WeatherComponent() {
     };
 
     return (
-        <div>
-            {weatherData && (
-                <div className="weather-inner">
-                    <input
-                        type="text"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        placeholder="Enter your city"
-                    />
+        <div className="weather-inner">
+            <input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="Enter your city"
+            />
+            {weatherData ? (
+                <>
                     <div className="weather-inner__info">
                         <h2>City: {weatherData.name}</h2>
-                        <p>
-                            Temperature: {Math.round(weatherData.main.temp)}°C
-                        </p>
+                        <p>Temperature: {Math.round(weatherData.main.temp)}°C</p>
                     </div>
                     <Link
                         className="link"
@@ -58,12 +56,15 @@ export default function WeatherComponent() {
                     >
                         Recommendations
                     </Link>
-
-                    <p className="weather-recomend">
+                    <p className="weather-recommend">
                         {getActivityRecommendation(weatherData.main.temp)}
                     </p>
-                </div>
+                </>
+            ) : (
+                <p>Loading...</p>
             )}
         </div>
     );
-}
+};
+
+export default WeatherComponent;

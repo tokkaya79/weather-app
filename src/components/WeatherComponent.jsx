@@ -21,7 +21,7 @@ export default function WeatherComponent() {
 
         fetchData();
     }, [city]);
-     const getActivityRecommendation = (temperature) => {
+    const getActivityRecommendation = (temperature) => {
         if (temperature > 25) {
             return "Perfect weather for a picnic or walk in the park.";
         } else if (temperature > 15) {
@@ -32,8 +32,7 @@ export default function WeatherComponent() {
             return "Take hot tea and go lie under the blanket.";
         }
     };
-    
-    
+
     return (
         <div>
             {weatherData && (
@@ -59,8 +58,10 @@ export default function WeatherComponent() {
                     >
                         Recommendations
                     </Link>
-                    
-                    <p className="weather-recomend">{getActivityRecommendation(weatherData.main.temp)}</p>
+
+                    <p className="weather-recomend">
+                        {getActivityRecommendation(weatherData.main.temp)}
+                    </p>
                 </div>
             )}
         </div>

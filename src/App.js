@@ -1,17 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Home from "./pages/home/Home";
-import RecommendPage from './pages/recommendPage/RecommendPage';
-import WeatherPage from "./pages/weatherPage/WeatherPage";
+import Home from "./pages/Home";
+import RecommendPage from "./pages/RecommendPage";
+import WeatherPage from "./pages/WeatherPage";
 
 import "./style.css";
 
 function App() {
-  return (
-    <div className="App">
-     
-      <Router>
+    return (
+        <div className="App">
+            <Router>
                 <Routes>
                     <Route
                         path="/"
@@ -23,14 +21,12 @@ function App() {
                     />
                     <Route
                         path="/recommendations"
-                        element={<RecommendPage/>}
+                        element={<RecommendPage />}
                     />
                 </Routes>
             </Router>
-
-
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;

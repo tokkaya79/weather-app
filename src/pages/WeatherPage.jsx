@@ -1,7 +1,5 @@
-
-
-import NavBar from "../../components/navBar/NavBar";
-import WeatherComponent from "../../components/weather/WeatherComponent";
+import NavBar from "../components/NavBar";
+import WeatherComponent from "../components/WeatherComponent";
 
 export default function WeatherPage() {
     return (
@@ -9,7 +7,7 @@ export default function WeatherPage() {
             <NavBar />
             <div className="box">
                 <h2 className="title-weather">Weather in your place</h2>
-                <WeatherComponent/>
+                <WeatherComponent />
             </div>
         </>
     );

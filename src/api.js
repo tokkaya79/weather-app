@@ -1,14 +1,16 @@
 import axios from "axios";
-import { API_URL, API_KEY } from "./config";
+import { API_URL_WEATHER, API_URL_ACTIVITY, API_KEY } from "./config";
 
-const fetchWeatherByCity = async (cityName) => {
-    try {
-        const response = await axios.get(`${API_URL}?q=${cityName}&appid=${API_KEY}&units=metric`);
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching weather data:", error);
-        throw error;
-    }
+const getWeatherByCity = async (cityName) => {
+    const response = await axios.get(
+        `${API_URL_WEATHER}?q=${cityName}&appid=${API_KEY}&units=metric`
+    );
+    return response.data;
 };
 
-export { fetchWeatherByCity };
+const getRandomActivity = async () => {
+    const response = await axios.get(`${API_URL_ACTIVITY}`);
+    return response.data;
+};
+
+export { getWeatherByCity, getRandomActivity };

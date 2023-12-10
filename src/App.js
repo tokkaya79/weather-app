@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
-import RecommendPage from "./pages/RecommendPage";
+import ActivityPage from "./pages/ActivityPage";
 import WeatherPage from "./pages/WeatherPage";
-
 import "./style.css";
 
 function App() {
@@ -20,8 +18,8 @@ function App() {
                         element={<WeatherPage />}
                     />
                     <Route
-                        path="/recommendations"
-                        element={<RecommendPage />}
+                        path="/activity"
+                        element={<ActivityPage />}
                     />
                 </Routes>
             </Router>

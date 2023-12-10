@@ -1,68 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchWeatherByCity } from "../api";
+import { getWeatherByCity } from "../api";
 
 const WeatherComponent = () => {
     const [city, setCity] = useState("");
     const [weatherData, setWeatherData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                if (city) {
-                    const data = await fetchWeatherByCity(city);
-                    setWeatherData(data);
-                }
-            } catch (error) {
-                console.error("Error fetching weather data:", error);
+    const getData = async () => {
+        try {
+            setLoading(true);
+            setError(false);
+            if (city) {
+                const data = await getWeatherByCity(city);
+                setWeatherData(data);
             }
-        };
-
-        fetchData();
-    }, [city]);
-
-    const getActivityRecommendation = (temperature) => {
-        if (temperature > 25) {
-            return "Perfect weather for a picnic or walk in the park.";
-        } else if (temperature > 15) {
-            return "Good weather for outdoor sports.";
-        } else if (temperature > 0) {
-            return "Maybe it's better to stay warm at home.";
-        } else {
-            return "Take hot tea and go lie under the blanket.";
+        } catch (error) {
+            setError(true);
+        } finally {
+            setLoading(false);
         }
+    };
+
+    const handleSearch = () => {
+        getData();
     };
 
     return (
         <div className="weather-inner">
-            <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="Enter your city"
-            />
-            {weatherData ? (
+            <div className="">
+                <input
+                    type="text"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="Enter your city"
+                />
+                <button
+                    onClick={handleSearch}
+                    type="submit"
+                    disabled={!city}
+                >
+                    Search
+                </button>
+            </div>
+            {weatherData && !loading ? (
                 <>
                     <div className="weather-inner__info">
                         <h2>City: {weatherData.name}</h2>
-                        <p>Temperature: {Math.round(weatherData.main.temp)}°C</p>
+                        <p>
+                            Temperature: {Math.round(weatherData.main.temp)}°C
+                        </p>
                     </div>
                     <Link
                         className="link"
-                        to={{
-                            pathname: "/recommendations",
-                            state: { weatherData },
-                        }}
+                        to={"/activity"}
                     >
                         Recommendations
                     </Link>
-                    <p className="weather-recommend">
-                        {getActivityRecommendation(weatherData.main.temp)}
-                    </p>
                 </>
             ) : (
                 <p>Loading...</p>
             )}
+            {error && <div>Error</div>}
         </div>
     );
 };

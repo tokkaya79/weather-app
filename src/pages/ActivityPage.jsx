@@ -1,13 +1,13 @@
 import NavBar from "../components/NavBar";
-import RecommendComponent from "../components/RecommendComponent";
+import ActivityComponent from "../components/ActivityComponent";
 
-export default function RecommendPage() {
+export default function ActivityPage() {
     return (
         <>
             <NavBar />
             <div className="box box-recommend">
                 <h2 className="title-weather">Recommendation</h2>
-                <RecommendComponent />
+                <ActivityComponent />
             </div>
         </>
     );

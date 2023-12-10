@@ -28,15 +28,17 @@ const WeatherComponent = () => {
     };
 
     return (
-        <div className="weather-inner">
-            <div className="">
+        <div className="weather-component__box">
+            <div className="weather-component__box--search">
                 <input
+                    className="weather-component__inner--input"
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Enter your city"
                 />
                 <button
+                    className="weather-component__inner--button"
                     onClick={handleSearch}
                     type="submit"
                     disabled={!city}
@@ -46,23 +48,25 @@ const WeatherComponent = () => {
             </div>
             {weatherData && !loading ? (
                 <>
-                    <div className="weather-inner__info">
+                    <div className="weather-component__inner--info">
                         <h2>City: {weatherData.name}</h2>
-                        <p>
+                        <p className="weather-component__inner--text">
                             Temperature: {Math.round(weatherData.main.temp)}°C
                         </p>
                     </div>
                     <Link
-                        className="link"
+                        className="weather-component__inner--link link"
                         to={"/activity"}
                     >
                         Recommendations
                     </Link>
                 </>
             ) : (
-                <p>Loading...</p>
+                <p className="weather-component__inner--text">Loading...</p>
             )}
-            {error && <div>Error</div>}
+            {error && (
+                <div className="weather-component__inner--error">Error</div>
+            )}
         </div>
     );
 };

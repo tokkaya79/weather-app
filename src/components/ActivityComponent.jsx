@@ -24,9 +24,9 @@ export default function ActivityComponent() {
     }, []);
 
     return (
-        <div>
+        <div className="attivity-component">
             {!loading && data ? data.activity : <div>...Loading</div>}
-            {error && <div>Что-то случилось.</div>}
+            {error && <div>Something wrong</div>}
         </div>
     );
 }

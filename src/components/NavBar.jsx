@@ -7,13 +7,13 @@ export default function NavBar() {
                 <div className="container">
                     <div className="nav-row">
                         <Link
-                            className="link"
+                            className="nav-link link"
                             to="/"
                         >
                             Home
                         </Link>
                         <Link
-                            className="link"
+                            className="nav-link link"
                             to="/weather"
                         >
                             Weather

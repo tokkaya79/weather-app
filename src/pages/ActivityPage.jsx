@@ -5,8 +5,8 @@ export default function ActivityPage() {
     return (
         <>
             <NavBar />
-            <div className="box box-recommend">
-                <h2 className="title-weather">Recommendation</h2>
+            <div className="activity-page__box box">
+                <h2 className="activity-page__title title">Recommendation</h2>
                 <ActivityComponent />
             </div>
         </>

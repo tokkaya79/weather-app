@@ -29,10 +29,10 @@ const WeatherComponent = () => {
         getData();
     };
     const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-        getData();
-    }
-};
+        if (e.key === "Enter") {
+            getData();
+        }
+    };
 
     return (
         <div className="weather-component__box">
@@ -45,7 +45,10 @@ const WeatherComponent = () => {
                     onKeyDown={handleKeyDown}
                     placeholder="Enter your city"
                 />
-                <Button handleSearch={handleSearch} city={city}/>
+                <Button
+                    handleSearch={handleSearch}
+                    city={city}
+                />
             </div>
             {weatherData && !loading ? (
                 <>

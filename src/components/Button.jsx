@@ -1,4 +1,4 @@
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Button({ handleSearch, city }) {
     return (
@@ -8,7 +8,7 @@ export default function Button({ handleSearch, city }) {
             type="submit"
             disabled={!city}
         >
-            <SearchIcon fontSize="large"/>
+            <SearchIcon fontSize="large" />
         </button>
     );
 }

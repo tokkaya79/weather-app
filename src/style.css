@@ -127,11 +127,11 @@ body {
 .title {
     font-size: 54px;
 }
-.weather-component__box--search{
-display: flex;
-align-items: center;
+.weather-component__box--search {
+    display: flex;
+    align-items: center;
 }
-.button{
+.button {
     width: 50px;
     height: 50px;
     font-size: 50px;
@@ -153,12 +153,11 @@ align-items: center;
 .link:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.home-page__link
-{
+.home-page__link {
     padding: 5px 10px;
     background-color: #fff;
 }
-.home-page__link:hover{
+.home-page__link:hover {
     background-color: #ccc;
 }
 
@@ -168,7 +167,7 @@ align-items: center;
     align-items: center;
     text-align: left;
 }
-.weather-component__box--search{
+.weather-component__box--search {
     margin-bottom: 30px;
 }
 

@@ -6,7 +6,9 @@ export default function WeatherPage() {
         <>
             <NavBar />
             <div className="weather-page box">
-                <h2 className="weather-page__title title">Weather in your place</h2>
+                <h2 className="weather-page__title title">
+                    Weather in your place
+                </h2>
                 <WeatherComponent />
             </div>
         </>

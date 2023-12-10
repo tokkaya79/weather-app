@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import Button from "./Button";
 import { getWeatherByCity } from "../api";
 
@@ -25,9 +24,6 @@ const WeatherComponent = () => {
         }
     };
 
-    const handleSearch = () => {
-        getData();
-    };
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             getData();
@@ -35,10 +31,10 @@ const WeatherComponent = () => {
     };
 
     return (
-        <div className="weather-component__box">
-            <div className="weather-component__box--search">
+        <div className="weather-component">
+            <div className="weather-component__search">
                 <input
-                    className="weather-component__box--input"
+                    className="weather-component__input"
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
@@ -46,29 +42,29 @@ const WeatherComponent = () => {
                     placeholder="Enter your city"
                 />
                 <Button
-                    handleSearch={handleSearch}
-                    city={city}
+                    onClick={getData}
+                    disabled={!city}
+                    type="submit"
+                    icon
                 />
             </div>
             {weatherData && !loading ? (
                 <>
-                    <div className="weather-component__box--info">
+                    <div className="weather-component__info">
                         <h2>City: {weatherData.name}</h2>
-                        <p className="weather-component__inner--text">
+                        <p className="weather-component__text">
                             Temperature: {Math.round(weatherData.main.temp)}°C
                         </p>
                     </div>
                     <Link
-                        className="weather-component__inner--link link"
+                        className="weather-component__link link"
                         to={"/activity"}
                     >
                         Recommendations
                     </Link>
                 </>
             ) : null}
-            {error && (
-                <div className="weather-component__inner--error">Error</div>
-            )}
+            {error && <div className="weather-component__error">Error</div>}
         </div>
     );
 };

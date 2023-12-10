@@ -106,7 +106,8 @@ legend {
 
 /* ============================= */
 body {
-    background: linear-gradient(to bottom right, #ffffcc, #e6d388);
+    background: linear-gradient(to bottom right, #ffe8cc, #cce5f2);
+    color: rgb(51, 50, 50);
 }
 
 .container {
@@ -127,10 +128,7 @@ body {
 .title {
     font-size: 54px;
 }
-.weather-component__box--search {
-    display: flex;
-    align-items: center;
-}
+
 .button {
     width: 50px;
     height: 50px;
@@ -141,7 +139,7 @@ body {
     display: flex;
     align-items: center;
     height: 50px;
-    background-color: #44bacf;
+    background-color: #4472cf;
     color: #fff;
 }
 .nav-row {
@@ -153,25 +151,26 @@ body {
 .link:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.home-page__link {
-    padding: 5px 10px;
-    background-color: #fff;
-}
-.home-page__link:hover {
+.home-page__link,
+.weather-component__link {
+    padding: 5px 20px;
     background-color: #ccc;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+.home-page__link:hover,
+.weather-component__link:hover {
+    background-color: rgba(204, 204, 204, 0.563);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.weather-component__box {
+.weather-component {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
 }
-.weather-component__box--search {
-    margin-bottom: 30px;
-}
-
-.weather-component__box input {
+.weather-component__input {
     max-width: 200px;
     text-align: center;
     padding: 5px;
@@ -179,14 +178,20 @@ body {
     font-size: 36px;
     text-align: center;
 }
-.weather-component__box input::placeholder {
+.weather-component__input::placeholder {
     font-size: 24px;
+}
+
+.weather-component__search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .weather-page__title,
 .activity-page__title,
 .box .link {
-    color: #76041b;
+    color: #372c95;
 }
 .activity-page__box {
     text-align: center;

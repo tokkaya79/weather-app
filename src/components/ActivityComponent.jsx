@@ -24,7 +24,7 @@ export default function ActivityComponent() {
     }, []);
 
     return (
-        <div className="attivity-component">
+        <div className="activity-component">
             {!loading && data ? data.activity : <div>...Loading</div>}
             {error && <div>Something wrong</div>}
         </div>

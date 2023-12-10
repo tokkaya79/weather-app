@@ -1,14 +1,15 @@
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function Button({ handleSearch, city }) {
+export default function Button({ onClick, type, disabled, icon, children }) {
     return (
         <button
             className="button"
-            onClick={handleSearch}
-            type="submit"
-            disabled={!city}
+            onClick={onClick}
+            type={type}
+            disabled={disabled}
         >
-            <SearchIcon fontSize="large" />
+            {icon && <SearchIcon fontSize="large" />}
+            {children}
         </button>
     );
 }

@@ -14,7 +14,7 @@ export default function Home() {
                     className="home-page__link link"
                     to="/weather"
                 >
-                    To see the Weather outsite
+                    To see the Weather outside
                 </Link>
             </div>
         </>

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import ActivityPage from "./pages/ActivityPage";
 import WeatherPage from "./pages/WeatherPage";
 import "./style.css";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
     return (
@@ -20,6 +21,11 @@ function App() {
                     <Route
                         path="/activity"
                         element={<ActivityPage />}
+                    />
+                    <Route
+                        path="*"
+                        exact={true}
+                        element={<NotFound />}
                     />
                 </Routes>
             </Router>

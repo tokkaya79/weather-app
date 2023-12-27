@@ -11,15 +11,15 @@ function App() {
             <Router>
                 <Routes>
                     <Route
-                        path="/"
+                        path="/weather-app"
                         element={<Home />}
                     />
                     <Route
-                        path="/weather"
+                        path="/weather-app/weather"
                         element={<WeatherPage />}
                     />
                     <Route
-                        path="/activity"
+                        path="/weather-app/activity"
                         element={<ActivityPage />}
                     />
                     <Route
